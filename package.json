@@ -1,6 +1,6 @@
 {
     "name": "ssm-loader",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "a cli tool to load parameters from aws parameter store",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
     "scripts": {
         "build-watch": "tsc --watch",
         "build": "tsc",
-        "test": "echo 'nothing yet'"
+        "test": "tsc && jest"
     },
     "repository": {
         "type": "git",
