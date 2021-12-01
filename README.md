@@ -1,4 +1,4 @@
-#  - CLI and node tool for synchronously loading AWS Parameter store values
+# CLI and node tool for synchronously loading AWS Parameter store values
 
 ## Getting started - Typescript / Javascript
 Add ssm-loader to your project

@@ -1,7 +1,7 @@
 {
     "name": "ssm-loader",
-    "version": "1.0.2",
-    "description": "a cli tool to synchronously load parameters from aws parameter store",
+    "version": "1.0.3",
+    "description": "a cli tool to load parameters from aws parameter store",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
@@ -15,9 +15,13 @@
         "build": "tsc",
         "test": "echo 'nothing yet'"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:johnthackstonanderson/ssm-loader.git"
+    },
     "author": "",
     "license": "ISC",
-    "homepage": "https://www.npmjs.com/package/ssm-loader",
+    "homepage": "https://github.com/johnthackstonanderson/ssm-loader",
     "bin": "./dist/bin/cli.js",
     "dependencies": {
         "@aws-sdk/client-ssm": "3.43.0",
