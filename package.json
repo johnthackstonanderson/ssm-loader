@@ -1,5 +1,5 @@
 {
-    "name": "@webkoils/ssm-sync",
+    "name": "@scnr/ssm-sync",
     "version": "0.0.1",
     "description": "a cli tool to load parameters from aws parameter store",
     "main": "dist/index.js",
