@@ -1,6 +1,6 @@
 {
     "name": "ssm-loader",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "description": "a cli tool to load parameters from aws parameter store",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -17,11 +17,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com:johnthackstonanderson/ssm-loader.git"
+        "url": "git+ssh://git@github.com:scener-inc/ssm-sync.git"
     },
     "author": "",
     "license": "ISC",
-    "homepage": "https://github.com/johnthackstonanderson/ssm-loader",
+    "homepage": "https://github.com/scener-inc/ssm-sync",
     "bin": "./dist/bin/cli.js",
     "dependencies": {
         "@aws-sdk/client-ssm": "3.43.0",
