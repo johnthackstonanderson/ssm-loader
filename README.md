@@ -1,27 +1,27 @@
 # CLI and node tool for synchronously loading AWS Parameter store values
 
 ## Getting started - Typescript / Javascript
-Add ssm-loader to your project
+Add ssm-sync to your project
 ```sh
-$ npm install ssm-loader
+$ npm install ssm-sync
 ```
 <br/>
 
 ## Getting started
-Globally install ssm-loader
+Globally install ssm-sync
 ```sh
-$ npm install ssm-loader -g
+$ npm install ssm-sync -g
 ```
 
-Load Parameter store values at path
+Load Parameter store values at path=PARAMETER_PATH
 ```sh
-$ ssm-loader
+$ ssm-sync --path "/<PARAMETER_PATH>"
 ```
 
 
 Load Parameter store values at path in javascript
 ```node.js
-import {getParameters} from "ssm-loader";
+import {getParameters} from "ssm-sync";
 let ssmParams = getParameters({
     path: "/dev"
     key?: <AWS_ACCESS_KEY_ID>,
@@ -32,6 +32,6 @@ let ssmParams = getParameters({
 <br/>
 
 ## CLI arguments
-* ```npx ssm-loader --help``` - Get possible arguments
-* ```npx ssm-loader --path "/dev" ``` - get all parameters under the /dev path (*path* is required)
-* ```npx ssm-loader --path "/dev" --secret <AWS_SECRET_ACCESS_KEY> --key <AWS_ACCESS_KEY_ID> --region <AWS_DEFAULT_REGION>``` - use custom aws credentials, otherwise, the tool will use whatever is configured in your env (profiles, env variables, etc.)
+* ```npx ssm-sync --help``` - Get possible arguments
+* ```npx ssm-sync --path "/dev" ``` - get all parameters under the /dev path (*path* is required)
+* ```npx ssm-sync --path "/dev" --secret <AWS_SECRET_ACCESS_KEY> --key <AWS_ACCESS_KEY_ID> --region <AWS_DEFAULT_REGION>``` - use custom aws credentials, otherwise, the tool will use whatever is configured in your env (profiles, env variables, etc.)

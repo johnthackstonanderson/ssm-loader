@@ -7,7 +7,7 @@ const getCliPath = function () {
     }
 };
 
-const getParameters = function (options: SSMLoaderGetParamtersOptions): SSMParameters {
+const getParameters = function (options: SSMLoaderGetParametersOptions): SSMParameters {
     if (options.path && options.path != "/") {
         let flagStr = Object.keys(options)
             .map((k) => "--" + k.toLowerCase() + ' "' + options[k] + '"')
@@ -30,12 +30,12 @@ const getParameters = function (options: SSMLoaderGetParamtersOptions): SSMParam
 };
 export { getParameters };
 export default getParameters;
-interface SSMLoaderGetParamtersOptions {
+export interface SSMLoaderGetParametersOptions {
     path: string;
     key?: string;
     secret?: string;
     region?: string;
 }
-interface SSMParameters {
+export interface SSMParameters {
     [key: string]: string;
 }
