@@ -3,14 +3,18 @@
 ## Getting started - Typescript / Javascript
 Add ssm-sync to your project
 ```sh
-$ npm install ssm-sync
+$ npm install @webkoils/ssm-sync
+#or
+$ yarn add @webkoils/ssm-sync
 ```
 <br/>
 
 ## Getting started
 Globally install ssm-sync
 ```sh
-$ npm install ssm-sync -g
+$ npm install @webkoils/ssm-sync -g
+#or
+$ yarn global add @webkoils/ssm-sync
 ```
 
 Load Parameter store values at path=PARAMETER_PATH
@@ -21,7 +25,7 @@ $ ssm-sync --path "/<PARAMETER_PATH>"
 
 Load Parameter store values at path in javascript
 ```node.js
-import {getParameters} from "ssm-sync";
+import {getParameters} from "@webkoils/ssm-sync";
 let ssmParams = getParameters({
     path: "/dev"
     key?: <AWS_ACCESS_KEY_ID>,
