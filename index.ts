@@ -3,7 +3,7 @@ const getCliPath = function () {
     if (process.env.NODE_ENV == "test") {
         return "node " + process.env.PWD + "/dist/bin/cli.js";
     } else {
-        return process.env.PWD + "/node_modules/.bin/ssm-loader";
+        return process.env.PWD + "/node_modules/.bin/ssm-sync";
     }
 };
 
