@@ -1,6 +1,6 @@
 {
     "name": "ssm-sync",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "a cli tool to load parameters from aws parameter store",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
