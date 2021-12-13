@@ -3,18 +3,18 @@
 ## Getting started - Typescript / Javascript
 Add ssm-sync to your project
 ```sh
-$ npm install @scnr/ssm-sync
+$ npm install ssm-sync
 #or
-$ yarn add @scnr/ssm-sync
+$ yarn add ssm-sync
 ```
 <br/>
 
 ## Getting started
 Globally install ssm-sync
 ```sh
-$ npm install @scnr/ssm-sync -g
+$ npm install ssm-sync -g
 #or
-$ yarn global add @scnr/ssm-sync
+$ yarn global add ssm-sync
 ```
 
 Load Parameter store values at path=PARAMETER_PATH
@@ -25,7 +25,7 @@ $ ssm-sync --path "/<PARAMETER_PATH>"
 
 Load Parameter store values at path in javascript
 ```node.js
-import {getParameters} from "@scnr/ssm-sync";
+import {getParameters} from "ssm-sync";
 let ssmParams = getParameters({
     path: "/dev"
     key?: <AWS_ACCESS_KEY_ID>,
