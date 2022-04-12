@@ -1,10 +1,17 @@
 import { execSync } from "child_process";
+import { existsSync } from "fs";
 const getCliPath = function () {
-    if (process.env.NODE_ENV == "test") {
-        return "node " + process.env.PWD + "/dist/bin/cli.js";
+    if (existsSync(__dirname + "/bin/cli.js")) {
+        return "node " + __dirname + "/bin/cli.js";
     } else {
-        return process.env.PWD + "/node_modules/.bin/ssm-sync";
+        return "npx ssm-sync";
     }
+
+    // if (process.env.NODE_ENV == "test") {
+    //
+    //  } else {
+
+    // }
 };
 
 const getParameters = function (options: SSMLoaderGetParametersOptions): SSMParameters {
@@ -12,11 +19,15 @@ const getParameters = function (options: SSMLoaderGetParametersOptions): SSMPara
         let flagStr = Object.keys(options)
             .map((k) => "--" + k.toLowerCase() + ' "' + options[k] + '"')
             .join(" ");
+
         try {
             let result = execSync(`${getCliPath()} ` + flagStr).toString("utf-8");
             let resultObj: any = JSON.parse(result);
             if (resultObj && !resultObj.error) {
                 return resultObj;
+            } else {
+                console.error("ssm-sync error", resultObj);
+                return {};
             }
         } catch (e) {
             if (e.output) {

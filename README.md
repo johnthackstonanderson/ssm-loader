@@ -35,6 +35,14 @@ let ssmParams = getParameters({
 ```
 <br/>
 
+
+Load Parameter Store values at path with env vars and autoload into process.env
+```bash
+SSM_PATH='/path/to/ssm/params'
+#or
+SSM_PATHS='/path/to/ssm/params,/path/to/other/params,...'
+```
+Note the parameters will be loaded in order, so each path in SSM_PATHS will override previously loaded paths
 ## CLI arguments
 * ```npx ssm-sync --help``` - Get possible arguments
 * ```npx ssm-sync --path "/dev" ``` - get all parameters under the /dev path (*path* is required)

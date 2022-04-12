@@ -2,22 +2,31 @@
     "name": "ssm-sync",
     "version": "0.0.3",
     "description": "a cli tool to load parameters from aws parameter store",
-    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
+    "exports": {
+        ".": "./dist/index.js",
+        "./autoload": "./dist/autoload.js",
+        "./cli": "./dist/bin/cli.js"
+    },
     "scripts": {
-        "build-watch": "tsc --watch",
-        "build": "tsc",
-        "test": "tsc && jest",
-        "prepublish": "tsc && jest"
+        "watch": "run-p watch:*",
+        "watch:cli": "esbuild --bundle --target=node14 --platform=node --format='cjs' --outfile=./dist/bin/cli.js --allow-overwrite --watch bin/cli.ts",
+        "watch:main": "esbuild --bundle --target=node14 --platform=node --format='cjs' --external:./node_modules --external:#* --external:ssm-syn --allow-overwritec --outdir=./dist --watch index.ts autoload.ts",
+        "build": "run-p build:* generate-types",
+        "generate-types": "tsc",
+        "build:cli": "esbuild --bundle --target=node14 --platform=node --format='cjs' --outfile=./dist/bin/cli.js --allow-overwrite bin/cli.ts",
+        "build:main": "esbuild --bundle --target=node14 --platform=node --format='cjs' --external:./node_modules --external:#* --external:ssm-sync --allow-overwrite --outdir=./dist  index.ts autoload.ts",
+        "test": "npm run  build && jest",
+        "prepublish": "npm run build && jest"
     },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com:scener-inc/ssm-sync.git"
     },
-    "author": "",
+    "author": "John Anderson<john@scener.com>",
     "license": "ISC",
     "homepage": "https://github.com/scener-inc/ssm-sync",
     "bin": "./dist/bin/cli.js",
@@ -26,12 +35,6 @@
         "yargs": "^17.3.0"
     },
     "devDependencies": {
-        "@types/node": "^10.12.18",
-        "@types/yargs": "^15.0.12",
-        "@typescript-eslint/eslint-plugin": "^4.14.1",
-        "@typescript-eslint/parser": "^4.14.1",
-        "typescript": "^4.1.3",
-        "ts-node": "^9.0.0",
         "@babel/preset-env": "^7.12.1",
         "@babel/preset-typescript": "^7.12.7",
         "@types/glob": "^7.1.3",
@@ -39,6 +42,12 @@
         "@types/jest": "^26.0.15",
         "@types/jest-specific-snapshot": "^0.5.5",
         "@types/lodash": "^4.14.165",
+        "@types/node": "^10.12.18",
+        "@types/yargs": "^15.0.12",
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "@typescript-eslint/parser": "^4.14.1",
+        "dotenv": "10.0.0",
+        "esbuild": "^0.14.36",
         "eslint": "^7.18.0",
         "fast-glob": "^3.2.5",
         "glob": "^7.1.6",
@@ -46,8 +55,10 @@
         "jest-file-snapshot": "^0.5.0",
         "jest-junit": "^12.0.0",
         "jest-specific-snapshot": "^4.0.0",
+        "npm-run-all": "^4.1.5",
         "rimraf": "^3.0.2",
         "ts-jest": "^26.4.3",
-        "dotenv": "10.0.0"
+        "ts-node": "^9.0.0",
+        "typescript": "^4.1.3"
     }
 }

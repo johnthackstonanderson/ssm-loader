@@ -4,8 +4,10 @@
         "module": "commonjs",
         "removeComments": true,
         "noUnusedLocals": true,
+        "isolatedModules": true,
         "noUnusedParameters": true,
         "sourceMap": true,
+        "emitDeclarationOnly": true,
         "esModuleInterop": true,
         "declaration": true,
         "outDir": "./dist"
