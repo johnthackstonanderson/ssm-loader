@@ -3,13 +3,10 @@
     "version": "0.0.6",
     "description": "a cli tool to load parameters from aws parameter store",
     "types": "dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
     "exports": {
-        "ssm-sync": "./dist/index.js",
-        "ssm-sync/autoload": "./dist/autoload.js",
-        "ssm-sync/cli": "./dist/bin/cli.js"
+        ".": "./dist/index.js",
+        "./autoload": "./dist/autoload.js",
+        "./cli": "./dist/bin/cli.js"
     },
     "scripts": {
         "watch": "run-p watch:*",
